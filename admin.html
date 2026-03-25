@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Quantum Snippet</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bg:#080808;--sur:#111;--card:#161616;--bor:#222;--gold:#C9A84C;--gold2:#E8D4A0;--txt:#F0EBE0;--mut:#6B6560;--red:#e05555;--green:#4caf7d;}
+body{background:var(--bg);color:var(--txt);font-family:'Outfit',sans-serif;min-height:100vh;}
+
+/* Login */
+#loginScreen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}
+.login-box{background:var(--card);border:1px solid var(--bor);border-radius:4px;padding:48px 44px;max-width:400px;width:100%;text-align:center;}
+.login-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin-bottom:8px;}
+.login-logo span{color:var(--gold);}
+.login-sub{font-size:13px;color:var(--mut);margin-bottom:36px;}
+.login-input{width:100%;background:var(--bg);border:1px solid var(--bor);color:var(--txt);font-family:'Outfit',sans-serif;font-size:14px;padding:14px 16px;border-radius:2px;outline:none;transition:border-color .2s;margin-bottom:12px;}
+.login-input:focus{border-color:var(--gold);}
+.login-btn{width:100%;background:var(--gold);color:#000;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;padding:15px;border:none;border-radius:2px;cursor:pointer;letter-spacing:.1em;text-transform:uppercase;transition:background .2s;}
+.login-btn:hover{background:var(--gold2);}
+.login-err{color:var(--red);font-size:13px;margin-top:10px;display:none;}
+
+/* App */
+#app{display:none;}
+header{background:var(--sur);border-bottom:1px solid var(--bor);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.h-logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;}
+.h-logo span{color:var(--gold);}
+.h-badge{font-size:10px;color:var(--gold);border:1px solid rgba(201,168,76,.3);padding:3px 10px;border-radius:100px;letter-spacing:.1em;text-transform:uppercase;margin-left:10px;}
+.h-right{display:flex;align-items:center;gap:12px;}
+.logout-btn{background:none;border:1px solid var(--bor);color:var(--mut);font-family:'Outfit',sans-serif;font-size:12px;padding:8px 14px;border-radius:2px;cursor:pointer;transition:all .2s;}
+.logout-btn:hover{border-color:var(--gold);color:var(--gold);}
+.refresh-btn{background:var(--gold);color:#000;border:none;font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;padding:8px 16px;border-radius:2px;cursor:pointer;transition:background .2s;}
+.refresh-btn:hover{background:var(--gold2);}
+
+main{max-width:1200px;margin:0 auto;padding:36px 32px;}
+
+/* Stats */
+.stats-row{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:36px;}
+.stat-card{background:var(--card);border:1px solid var(--bor);border-radius:4px;padding:20px 22px;}
+.stat-n{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--gold);line-height:1;}
+.stat-l{font-size:11px;color:var(--mut);letter-spacing:.08em;text-transform:uppercase;margin-top:6px;}
+
+/* Tabs */
+.tabs{display:flex;gap:2px;margin-bottom:24px;border-bottom:1px solid var(--bor);}
+.tab{padding:12px 22px;font-size:13px;font-weight:500;color:var(--mut);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;letter-spacing:.04em;}
+.tab.active{color:var(--gold);border-bottom-color:var(--gold);}
+.tab:hover{color:var(--txt);}
+
+/* Table */
+.table-wrap{background:var(--card);border:1px solid var(--bor);border-radius:4px;overflow:hidden;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+thead{background:var(--sur);}
+th{padding:12px 16px;text-align:left;font-size:10px;color:var(--mut);letter-spacing:.12em;text-transform:uppercase;font-weight:500;border-bottom:1px solid var(--bor);}
+td{padding:14px 16px;border-bottom:1px solid var(--bor);vertical-align:middle;color:var(--txt);}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(255,255,255,.02);}
+.email-link{color:var(--gold);text-decoration:none;}
+.email-link:hover{text-decoration:underline;}
+
+/* Status badges */
+.badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:100px;}
+.badge-new{background:rgba(201,168,76,.15);color:var(--gold);}
+.badge-pending{background:rgba(201,168,76,.15);color:var(--gold);}
+.badge-confirmed{background:rgba(76,175,125,.15);color:var(--green);}
+.badge-read{background:rgba(255,255,255,.06);color:var(--mut);}
+.badge-replied{background:rgba(76,175,125,.15);color:var(--green);}
+.badge-cancelled{background:rgba(224,85,85,.12);color:var(--red);}
+.badge-closed{background:rgba(255,255,255,.06);color:var(--mut);}
+
+/* Actions */
+.act-row{display:flex;gap:6px;flex-wrap:wrap;}
+select.status-sel{background:var(--bg);border:1px solid var(--bor);color:var(--txt);font-family:'Outfit',sans-serif;font-size:11px;padding:5px 8px;border-radius:2px;cursor:pointer;}
+select.status-sel:focus{outline:none;border-color:var(--gold);}
+.del-btn{background:rgba(224,85,85,.1);color:var(--red);border:1px solid rgba(224,85,85,.2);font-family:'Outfit',sans-serif;font-size:11px;padding:5px 10px;border-radius:2px;cursor:pointer;transition:all .2s;}
+.del-btn:hover{background:var(--red);color:#fff;}
+
+/* Empty / loading */
+.empty{text-align:center;padding:60px 20px;color:var(--mut);font-size:14px;}
+.loading{text-align:center;padding:60px 20px;color:var(--mut);font-size:14px;animation:pulse 1.2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+
+/* Message expand */
+.msg-cell{max-width:260px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--mut);cursor:pointer;}
+.msg-cell:hover{color:var(--txt);}
+
+/* Toast */
+.toast{position:fixed;bottom:28px;right:28px;background:var(--gold);color:#000;font-size:13px;font-weight:600;padding:12px 20px;border-radius:2px;display:none;z-index:9999;animation:slideIn .25s ease;}
+@keyframes slideIn{from{transform:translateY(20px);opacity:0;}to{transform:none;opacity:1;}}
+
+@media(max-width:900px){
+  .stats-row{grid-template-columns:1fr 1fr;}
+  main{padding:20px 16px;}
+  header{padding:0 16px;}
+  td,th{padding:10px 12px;}
+  .act-row{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<!-- Login -->
+<div id="loginScreen">
+  <div class="login-box">
+    <div class="login-logo">Quantum <span>Snippet</span></div>
+    <p class="login-sub">Admin Dashboard — Secure Access</p>
+    <input class="login-input" type="password" id="tokenInput" placeholder="Enter admin token" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="login-btn" onclick="doLogin()">Sign In</button>
+    <p class="login-err" id="loginErr">Invalid token. Try again.</p>
+  </div>
+</div>
+
+<!-- App -->
+<div id="app">
+  <header>
+    <div style="display:flex;align-items:center;">
+      <span class="h-logo">Quantum <span>Snippet</span></span>
+      <span class="h-badge">Admin</span>
+    </div>
+    <div class="h-right">
+      <button class="refresh-btn" onclick="loadAll()">↻ Refresh</button>
+      <button class="logout-btn" onclick="logout()">Sign Out</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Stats -->
+    <div class="stats-row" id="statsRow">
+      <div class="stat-card"><div class="stat-n" id="s-tb">—</div><div class="stat-l">Total Bookings</div></div>
+      <div class="stat-card"><div class="stat-n" id="s-pb">—</div><div class="stat-l">Pending Bookings</div></div>
+      <div class="stat-card"><div class="stat-n" id="s-tc">—</div><div class="stat-l">Total Leads</div></div>
+      <div class="stat-card"><div class="stat-n" id="s-nc">—</div><div class="stat-l">New Leads</div></div>
+      <div class="stat-card"><div class="stat-n" id="s-td">—</div><div class="stat-l">Booked Today</div></div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <div class="tab active" id="tab-b" onclick="switchTab('bookings')">📅 Bookings</div>
+      <div class="tab" id="tab-c" onclick="switchTab('contacts')">✉️ Leads & Messages</div>
+    </div>
+
+    <!-- Bookings table -->
+    <div id="panel-bookings" class="table-wrap">
+      <div class="loading" id="bLoad">Loading bookings…</div>
+      <table id="bookingsTable" style="display:none;">
+        <thead>
+          <tr>
+            <th>#</th><th>Name</th><th>Email</th><th>Date</th><th>Time</th><th>Status</th><th>Received</th><th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="bookingsTbody"></tbody>
+      </table>
+      <div class="empty" id="bEmpty" style="display:none;">No bookings yet.</div>
+    </div>
+
+    <!-- Contacts table -->
+    <div id="panel-contacts" class="table-wrap" style="display:none;">
+      <div class="loading" id="cLoad">Loading leads…</div>
+      <table id="contactsTable" style="display:none;">
+        <thead>
+          <tr>
+            <th>#</th><th>Name</th><th>Email</th><th>Business</th><th>Service</th><th>Message</th><th>Status</th><th>Received</th><th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="contactsTbody"></tbody>
+      </table>
+      <div class="empty" id="cEmpty" style="display:none;">No messages yet.</div>
+    </div>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const API = window.location.origin; // same-origin — server serves this file
+let TOKEN = '';
+
+// ── Auth ──────────────────────────────────────────────────────────────────────
+function doLogin() {
+  const t = document.getElementById('tokenInput').value.trim();
+  if (!t) return;
+  TOKEN = t;
+  fetch(`${API}/api/admin/stats`, { headers: { 'x-admin-token': TOKEN } })
+    .then(r => {
+      if (!r.ok) throw new Error('bad');
+      return r.json();
+    })
+    .then(() => {
+      document.getElementById('loginScreen').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
+      loadAll();
+    })
+    .catch(() => {
+      document.getElementById('loginErr').style.display = 'block';
+      TOKEN = '';
+    });
+}
+function logout() {
+  TOKEN = '';
+  document.getElementById('loginScreen').style.display = 'flex';
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('tokenInput').value = '';
+  document.getElementById('loginErr').style.display = 'none';
+}
+
+// ── Load all data ─────────────────────────────────────────────────────────────
+function loadAll() {
+  loadStats();
+  loadBookings();
+  loadContacts();
+}
+function apiFetch(path) {
+  return fetch(`${API}${path}`, { headers: { 'x-admin-token': TOKEN } }).then(r => r.json());
+}
+function loadStats() {
+  apiFetch('/api/admin/stats').then(d => {
+    document.getElementById('s-tb').textContent = d.totalBookings;
+    document.getElementById('s-pb').textContent = d.pendingBookings;
+    document.getElementById('s-tc').textContent = d.totalContacts;
+    document.getElementById('s-nc').textContent = d.newContacts;
+    document.getElementById('s-td').textContent = d.todayBookings;
+  });
+}
+
+// ── Bookings ──────────────────────────────────────────────────────────────────
+function loadBookings() {
+  document.getElementById('bLoad').style.display = 'block';
+  document.getElementById('bookingsTable').style.display = 'none';
+  document.getElementById('bEmpty').style.display = 'none';
+  apiFetch('/api/admin/bookings').then(rows => {
+    document.getElementById('bLoad').style.display = 'none';
+    if (!rows.length) { document.getElementById('bEmpty').style.display = 'block'; return; }
+    const tbody = document.getElementById('bookingsTbody');
+    tbody.innerHTML = rows.map(r => `
+      <tr>
+        <td style="color:var(--mut)">#${r.id}</td>
+        <td><strong>${esc(r.name)}</strong></td>
+        <td><a class="email-link" href="mailto:${esc(r.email)}">${esc(r.email)}</a></td>
+        <td>${fmtDate(r.date_key)}</td>
+        <td>${esc(r.time_slot)}</td>
+        <td><span class="badge badge-${r.status}">${r.status}</span></td>
+        <td style="color:var(--mut);white-space:nowrap;">${fmtTs(r.created_at)}</td>
+        <td>
+          <div class="act-row">
+            <select class="status-sel" onchange="updateBooking(${r.id},this.value)">
+              <option value="pending"   ${r.status==='pending'?'selected':''}>Pending</option>
+              <option value="confirmed" ${r.status==='confirmed'?'selected':''}>Confirmed</option>
+              <option value="cancelled" ${r.status==='cancelled'?'selected':''}>Cancelled</option>
+            </select>
+            <button class="del-btn" onclick="delBooking(${r.id})">Delete</button>
+          </div>
+        </td>
+      </tr>
+    `).join('');
+    document.getElementById('bookingsTable').style.display = 'table';
+  });
+}
+function updateBooking(id, status) {
+  fetch(`${API}/api/admin/bookings/${id}`, {
+    method: 'PATCH',
+    headers: { 'x-admin-token': TOKEN, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ status })
+  }).then(() => { showToast('Status updated'); loadStats(); loadBookings(); });
+}
+function delBooking(id) {
+  if (!confirm('Delete this booking?')) return;
+  fetch(`${API}/api/admin/bookings/${id}`, {
+    method: 'DELETE', headers: { 'x-admin-token': TOKEN }
+  }).then(() => { showToast('Booking deleted'); loadAll(); });
+}
+
+// ── Contacts ──────────────────────────────────────────────────────────────────
+function loadContacts() {
+  document.getElementById('cLoad').style.display = 'block';
+  document.getElementById('contactsTable').style.display = 'none';
+  document.getElementById('cEmpty').style.display = 'none';
+  apiFetch('/api/admin/contacts').then(rows => {
+    document.getElementById('cLoad').style.display = 'none';
+    if (!rows.length) { document.getElementById('cEmpty').style.display = 'block'; return; }
+    const tbody = document.getElementById('contactsTbody');
+    tbody.innerHTML = rows.map(r => `
+      <tr>
+        <td style="color:var(--mut)">#${r.id}</td>
+        <td><strong>${esc(r.name)}</strong></td>
+        <td><a class="email-link" href="mailto:${esc(r.email)}">${esc(r.email)}</a></td>
+        <td>${esc(r.business||'—')}</td>
+        <td style="white-space:nowrap;">${esc(r.service||'—')}</td>
+        <td class="msg-cell" title="${esc(r.message||'')}" onclick="this.style.whiteSpace=this.style.whiteSpace==='normal'?'nowrap':'normal'">${esc(r.message||'—')}</td>
+        <td><span class="badge badge-${r.status}">${r.status}</span></td>
+        <td style="color:var(--mut);white-space:nowrap;">${fmtTs(r.created_at)}</td>
+        <td>
+          <div class="act-row">
+            <select class="status-sel" onchange="updateContact(${r.id},this.value)">
+              <option value="new"     ${r.status==='new'?'selected':''}>New</option>
+              <option value="read"    ${r.status==='read'?'selected':''}>Read</option>
+              <option value="replied" ${r.status==='replied'?'selected':''}>Replied</option>
+              <option value="closed"  ${r.status==='closed'?'selected':''}>Closed</option>
+            </select>
+            <button class="del-btn" onclick="delContact(${r.id})">Delete</button>
+          </div>
+        </td>
+      </tr>
+    `).join('');
+    document.getElementById('contactsTable').style.display = 'table';
+  });
+}
+function updateContact(id, status) {
+  fetch(`${API}/api/admin/contacts/${id}`, {
+    method: 'PATCH',
+    headers: { 'x-admin-token': TOKEN, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ status })
+  }).then(() => { showToast('Status updated'); loadStats(); loadContacts(); });
+}
+function delContact(id) {
+  if (!confirm('Delete this lead?')) return;
+  fetch(`${API}/api/admin/contacts/${id}`, {
+    method: 'DELETE', headers: { 'x-admin-token': TOKEN }
+  }).then(() => { showToast('Lead deleted'); loadAll(); });
+}
+
+// ── Tabs ──────────────────────────────────────────────────────────────────────
+function switchTab(t) {
+  document.getElementById('panel-bookings').style.display = t==='bookings'?'block':'none';
+  document.getElementById('panel-contacts').style.display = t==='contacts'?'block':'none';
+  document.getElementById('tab-b').classList.toggle('active', t==='bookings');
+  document.getElementById('tab-c').classList.toggle('active', t==='contacts');
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+function esc(s){ if(!s)return''; return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+function fmtDate(key) {
+  if (!key) return '—';
+  const [y,m,d] = key.split('-').map(Number);
+  return new Date(y,m,d).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+}
+function fmtTs(ts) {
+  if (!ts) return '—';
+  return new Date(ts).toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});
+}
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  setTimeout(() => { t.style.display = 'none'; }, 2500);
+}
+</script>
+</body>
+</html>

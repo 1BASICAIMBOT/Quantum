@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="Premium web design agency delivering custom, fast, mobile-first websites in 7 days. Perfect for small businesses. $299 starting price.">
+<meta name="keywords" content="web design, web development, website builder, small business websites, custom web design, fast website">
+<meta name="author" content="Quantum Snippet">
+<meta name="theme-color" content="#C9A84C">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Quantum Snippet - Premium Web Design Agency">
+<meta property="og:description" content="Custom, fast, mobile-first websites for small businesses in 7 days. No templates, no compromises.">
+<meta property="og:url" content="https://quantumsnippet.xyz/">
+<title>Quantum Snippet - Premium Web Design Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="bar" id="bar"></div>
+
+<nav>
+  <a href="#" class="logo">Quantum <span>Snippet</span></a>
+  <ul class="nl">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Our Work</a></li>
+    <li><a href="#booking">Book a Call</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nr">
+    <button class="mbtn" id="modeBtn" onclick="toggleMode()">Light Mode</button>
+    <div class="lw">
+      <button class="lbtn" id="lbtn" onclick="toggleL()">EN</button>
+      <div class="ldrop" id="ldrop">
+        <div class="lopt on" onclick="setL('en',this)">English</div>
+        <div class="lopt" onclick="setL('es',this)">Espanol</div>
+        <div class="lopt" onclick="setL('fr',this)">Francais</div>
+        <div class="lopt" onclick="setL('pt',this)">Portugues</div>
+      </div>
+    </div>
+    <a href="#contact" class="ncta">Hire Us</a>
+  </div>
+  <button class="hbg" onclick="toggleM()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mm" id="mm">
+  <a href="#services" onclick="toggleM()">Services</a>
+  <a href="#work" onclick="toggleM()">Our Work</a>
+  <a href="#booking" onclick="toggleM()">Book a Call</a>
+  <a href="#contact" onclick="toggleM()" style="color:var(--gold)">Hire Us</a>
+</div>
+
+<div class="hero">
+  <div class="hl">
+    <div class="htag">Web Design Agency</div>
+    <h1>We build sites<br>that <span class="it">win</span><br>clients.</h1>
+    <p class="hd" id="hd">Fast, beautiful, conversion-focused websites for small businesses across the WORLD. Delivered in 7 days - guaranteed.</p>
+    <div class="cs">
+      <a class="bg" id="hb1" href="https://www.instagram.com/quantum_snippet/?__pwa=1" target="_blank">GET IN CONTACT</a>
+      <a href="https://www.instagram.com/quantum_snippet/?__pwa=1" target="_blank" class="bo" id="hb2">See Our Work</a>
+    </div>
+    <div class="tb">
+      <div><span class="tn" data-target="15" data-sfx="+">15+</span><div class="tl">Sites Delivered</div></div>
+      <div><span class="tn" data-target="7" data-sfx=" days">7 days</span><div class="tl">Turnaround</div></div>
+      <div><span class="tn" data-target="100" data-sfx="%">100%</span><div class="tl">Satisfaction</div></div>
+    </div>
+  </div>
+  <div class="hr">
+    <div class="hc rv">
+      <div class="hcl">Latest Project</div>
+      <div class="hct">Quantum Snippet App</div>
+      <div class="hcs">AI-powered developer tool - full brand, landing page, and launch in 3 days.</div>
+      <div class="hctags"><span class="hctag">Branding</span><span class="hctag">UI Design</span><span class="hctag">Dev</span><span class="hctag">Launch</span></div>
+      <div class="hcbar"><div class="hcfill"></div></div>
+    </div>
+    <div class="hc rv">
+      <div class="hcl">Spots Open This Month</div>
+      <div class="hct">Your Business Could Be Next</div>
+      <div class="hcs">First come, first served. Book your free call today.</div>
+      <a href="#booking" class="sb">Book your spot &rarr;</a>
+    </div>
+    <div class="hc rv" style="background:rgba(201,168,76,.06);border-color:rgba(201,168,76,.2);">
+      <div class="hcl">Why Us</div>
+      <div class="wi"><span>&#10003;</span>7-day delivery, every time</div>
+      <div class="wi"><span>&#10003;</span>100% custom - no templates</div>
+      <div class="wi"><span>&#10003;</span>Mobile-first, SEO-ready</div>
+      <div class="wi"><span>&#10003;</span>Free revisions until you love it</div>
+    </div>
+  </div>
+</div>
+
+<div class="mq"><div class="mqt">
+  <span class="mqi">Small Business Websites</span><span class="mqi">7-Day Delivery</span><span class="mqi">Mobile-First</span><span class="mqi">SEO Optimized</span><span class="mqi">From $199</span><span class="mqi">USA Based</span><span class="mqi">100% Custom</span><span class="mqi">Free Consultation</span><span class="mqi">Small Business Websites</span><span class="mqi">7-Day Delivery</span><span class="mqi">Mobile-First</span><span class="mqi">SEO Optimized</span><span class="mqi">From $499</span><span class="mqi">USA Based</span><span class="mqi">100% Custom</span><span class="mqi">Free Consultation</span>
+</div></div>
+
+<div class="sec" id="services"><div class="si">
+  <p class="ey rv">What We Offer</p>
+  <h2 class="rv">Built for <em>real</em> businesses.</h2>
+  <p class="ss rv">No bloated fees. No templates. Fast, beautiful websites that bring in customers.</p>
+  <div class="sg">
+    <div class="sv rv"><span class="sn">01</span><div class="snm">Starter Site</div><div class="sd">3-5 pages, custom design, contact form, Google Maps, mobile-optimized. Live in 7 days.</div><div class="sp">From $299</div><button class="sb" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book a call &rarr;</button></div>
+    <div class="sv rv"><span class="sn">02</span><div class="snm">Business Site</div><div class="sd">5-10 pages, full SEO, booking system, social integration. Built to convert visitors into customers.</div><div class="sp">From $499</div><button class="sb" type="button" disabled>Not available yet</button></div>
+    <div class="sv rv"><span class="sn">03</span><div class="snm">Redesign</div><div class="sd">Old site costing you clients? We rebuild from scratch - modern, fast, mobile-first.</div><div class="sp">From $199</div><button class="sb" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book a call &rarr;</button></div>
+  </div>
+</div></div>
+
+<div class="cw" id="counters"><div class="ci">
+  <div class="cit rv"><span class="cn" data-target="15" data-sfx="+">0</span><div class="cl">Websites Delivered</div></div>
+  <div class="cit rv"><span class="cn" data-target="7" data-sfx=" Days">0</span><div class="cl">Avg. Delivery Time</div></div>
+  <div class="cit rv"><span class="cn" data-target="100" data-sfx="%">0</span><div class="cl">Client Satisfaction</div></div>
+  <div class="cit rv"><span class="cn" data-target="3" data-sfx="x">0</span><div class="cl">Avg. Traffic Increase</div></div>
+</div></div>
+
+<div class="bas" id="work"><div class="si">
+  <p class="ey rv">Transformations</p>
+  <h2 class="rv">The <em>difference</em> is visible.</h2>
+  <p class="ss rv">Drag the slider to see what we deliver for every client.</p>
+  <div class="bag">
+    <div class="bac rv">
+      <div class="bah"><div class="bat">AuraBloom by Fatima</div><div class="bb">Beauty Shop</div></div>
+      <div class="bsl" id="sl1">
+        <div class="baf"><div style="width:100%;height:100%;background:#fef0f5;display:flex;flex-direction:column;font-family:'Outfit',sans-serif;"><div style="background:linear-gradient(90deg,#d45a74,#f4a7c0,#e8758e);padding:6px 10px;text-align:center;font-size:6px;letter-spacing:.22em;text-transform:uppercase;color:#fff;flex-shrink:0;">Beauty Plug in Paradise Estate</div><div style="background:rgba(255,249,252,.93);padding:8px 10px;border-bottom:1px solid rgba(244,167,192,.25);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;flex-shrink:0;"><div style="font-size:6px;letter-spacing:.16em;text-transform:uppercase;color:#8a5568;">Shop Videos Gifts</div><div style="font-size:15px;line-height:1;color:#e8758e;font-family:cursive;">AuraBloom</div><div style="font-size:10px;text-align:right;color:#e8758e;">&#x1F6CD;</div></div><div style="flex:1;position:relative;background:linear-gradient(160deg,#fdf0f6 0%,#fce8f2 40%,#fbd5e8 70%,#f9c8e0 100%);padding:12px 12px 10px;display:grid;grid-template-columns:1.15fr .85fr;gap:10px;overflow:hidden;"><div style="position:absolute;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,rgba(244,167,192,.28),transparent 65%);top:-24px;right:-18px;"></div><div style="position:absolute;width:70px;height:70px;border-radius:50%;background:radial-gradient(circle,rgba(212,168,75,.18),transparent 65%);bottom:6px;left:12px;"></div><div style="position:relative;z-index:1;"><div style="display:inline-flex;align-items:center;gap:5px;font-size:6px;letter-spacing:.26em;text-transform:uppercase;color:#e8758e;border:1px solid rgba(232,117,142,.28);padding:5px 9px;border-radius:999px;background:rgba(244,167,192,.14);margin-bottom:8px;">&#10024; Paradise Estate</div><div style="font-family:'Playfair Display',serif;font-size:20px;line-height:.96;color:#2d1520;"><span style="display:block;font-size:24px;line-height:.85;color:#e8758e;font-family:cursive;">AuraBloom</span>by <span style="color:#d4a84b;">Fatima</span></div><div style="font-size:7px;line-height:1.55;color:#8a5568;margin-top:8px;max-width:100px;">Lashes, gloss, perfumes, jewellery, and gift sets in one soft, feminine storefront.</div><div style="display:flex;gap:6px;margin-top:9px;flex-wrap:wrap;"><span style="font-size:6px;letter-spacing:.18em;text-transform:uppercase;background:linear-gradient(135deg,#d45a74,#e8758e,#f4a7c0);color:#fff;padding:6px 9px;border-radius:999px;">Shop Now</span><span style="font-size:6px;letter-spacing:.15em;text-transform:uppercase;border:1px solid rgba(232,117,142,.35);color:#e8758e;padding:6px 8px;border-radius:999px;">WhatsApp</span></div></div><div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:center;"><div style="width:58px;height:112px;background:#1a0c14;border-radius:16px;border:2px solid rgba(244,167,192,.35);box-shadow:0 14px 28px rgba(45,21,32,.18);position:relative;overflow:hidden;"><div style="position:absolute;inset:0;background:linear-gradient(180deg,#ffb7d6,#f4a7c0 35%,#2d1520 100%);"></div></div></div></div><div style="background:#fff9fc;border-top:1px solid rgba(244,167,192,.18);display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:7px;flex-shrink:0;"><div style="text-align:center;background:#fff;border:1px solid rgba(244,167,192,.18);border-radius:8px;padding:5px 2px;"><div style="font-size:10px;color:#e8758e;">&#128065;</div><div style="font-size:5px;letter-spacing:.12em;text-transform:uppercase;color:#8a5568;">Lashes</div></div><div style="text-align:center;background:#fff;border:1px solid rgba(244,167,192,.18);border-radius:8px;padding:5px 2px;"><div style="font-size:10px;color:#e8758e;">&#128139;</div><div style="font-size:5px;letter-spacing:.12em;text-transform:uppercase;color:#8a5568;">Gloss</div></div><div style="text-align:center;background:#fff;border:1px solid rgba(244,167,192,.18);border-radius:8px;padding:5px 2px;"><div style="font-size:10px;color:#e8758e;">&#127801;</div><div style="font-size:5px;letter-spacing:.12em;text-transform:uppercase;color:#8a5568;">Perfume</div></div><div style="text-align:center;background:#fff;border:1px solid rgba(244,167,192,.18);border-radius:8px;padding:5px 2px;"><div style="font-size:10px;color:#e8758e;">&#127873;</div><div style="font-size:5px;letter-spacing:.12em;text-transform:uppercase;color:#8a5568;">Gift Sets</div></div></div></div></div>
+        <div class="bab" id="b1"><div style="width:100%;height:100%;background:#f6f1f4;display:flex;flex-direction:column;"><div style="background:#d28aac;padding:8px 12px;flex-shrink:0;"><span style="font-size:9px;color:#fff;font-weight:bold;">Fatima Beauty Store</span></div><div style="flex:1;padding:10px;display:flex;flex-direction:column;gap:6px;overflow:hidden;"><div style="background:#e5dee2;border:2px dashed #d1c2cb;height:60px;display:flex;align-items:center;justify-content:center;font-size:8px;color:#9d8b94;text-align:center;">WELCOME TO FATIMA BEAUTY STORE</div><div style="background:#eadfe5;height:4px;width:88%;border-radius:1px;"></div><div style="background:#d28aac;color:#fff;font-size:7px;padding:5px 9px;width:70px;text-align:center;">Shop</div></div><div style="background:#e5dee2;padding:6px;font-size:7px;color:#9d8b94;text-align:center;flex-shrink:0;">2021 Fatima Beauty Store</div></div></div>
+        <div class="bdv" id="l1"></div><div class="bhn" id="h1">&harr;</div>
+        <div class="lb lb-b">Before</div><div class="lb lb-a">After</div>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<div class="scs"><div class="si">
+  <p class="ey rv">Our Work</p>
+  <h2 class="rv">Real sites. <em>Real results.</em></h2>
+  <p class="ss rv">Every project is custom-built from scratch.</p>
+  <div class="scl">
+    <div class="sci rv">
+      <a class="scr" href="https://fatima-rho.vercel.app/" target="_blank" rel="noopener noreferrer">
+        <div class="scb2"><div class="scd" style="background:#FF5F57"></div><div class="scd" style="background:#FFBD2E"></div><div class="scd" style="background:#28CA41"></div><div class="scu">fatima-rho.vercel.app</div></div>
+        <div style="background:#fef0f5;font-family:'Outfit',sans-serif;"><div style="background:linear-gradient(90deg,#d45a74,#f4a7c0,#e8758e);padding:8px 16px;text-align:center;font-size:8px;letter-spacing:.34em;text-transform:uppercase;color:#fff;">Your Beauty Plug in Paradise Estate</div><div style="background:rgba(255,249,252,.93);backdrop-filter:blur(10px);border-bottom:1px solid rgba(244,167,192,.25);padding:12px 16px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;"><div style="font-size:8px;letter-spacing:.24em;text-transform:uppercase;color:#8a5568;">Shop All Videos Gifts</div><div style="font-size:30px;color:#e8758e;font-family:cursive;line-height:1;">AuraBloom</div><div style="text-align:right;font-size:15px;color:#e8758e;">&#x1F6CD;</div></div><div style="min-height:250px;background:linear-gradient(160deg,#fdf0f6 0%,#fce8f2 40%,#fbd5e8 70%,#f9c8e0 100%);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;border-bottom:1px solid rgba(244,167,192,.18);"><div style="padding:26px 20px 22px;position:relative;z-index:1;"><div style="font-family:'Playfair Display',serif;font-size:43px;line-height:.92;color:#2d1520;"><span style="display:block;font-size:48px;line-height:.78;color:#e8758e;font-family:cursive;">AuraBloom</span>by <span style="color:#d4a84b;">Fatima</span></div><div style="font-size:10px;line-height:1.9;color:#8a5568;max-width:190px;margin-top:12px;">Your one-stop beauty destination for lashes, gloss, perfumes, jewellery, bonnets, and curated gift sets.</div><div style="display:flex;gap:10px;margin-top:18px;"><span style="font-size:8px;letter-spacing:.34em;text-transform:uppercase;background:linear-gradient(135deg,#d45a74,#e8758e,#f4a7c0);color:#fff;padding:10px 18px;border-radius:999px;">Shop Now</span></div></div><div style="padding:24px;display:flex;align-items:center;justify-content:center;"><div style="width:116px;height:226px;background:#1a0c14;border-radius:28px;border:3px solid rgba(244,167,192,.3);position:relative;overflow:hidden;"><div style="position:absolute;inset:0;background:linear-gradient(180deg,#ffbad8 0%,#f4a7c0 42%,#452133 100%);"></div></div></div></div></div>
+      </a>
+      <div class="scit"><div class="stag">Beauty Shop - Paradise Estate</div><div class="sname">AuraBloom by Fatima</div><div class="sdesc">Closer match to the live homepage: gradient announcement bar, glassy nav, blush editorial hero, floating phone video mockup, and the six-category strip.</div><div class="pills"><span class="pill">Beauty Ecommerce</span><span class="pill">Editorial Hero</span><span class="pill">Video Mockup</span><span class="pill">WhatsApp Orders</span></div><div class="res">Preview tuned against fatima-rho.vercel.app styling</div></div>
+    </div>
+  </div>
+</div></div>
+
+<div class="prs"><div class="si">
+  <p class="ey rv">How It Works</p>
+  <h2 class="rv">From zero to live in <em>7 days.</em></h2>
+  <div class="prg">
+    <div class="ps rv"><span class="psn">01</span><div class="pst">Free Call</div><div class="psd">30 minutes. We learn your business, goals, and vision. You get a quote on the call.</div></div>
+    <div class="ps rv"><span class="psn">02</span><div class="pst">Proposal</div><div class="psd">Clear scope, fixed price, exact timeline. No surprises, no hidden fees. Ever.</div></div>
+    <div class="ps rv"><span class="psn">03</span><div class="pst">We Build</div><div class="psd">You relax. We design, develop, and test. Daily updates so you are always in the loop.</div></div>
+    <div class="ps rv"><span class="psn">04</span><div class="pst">You Launch</div><div class="psd">Site live in 7 days. We handle hosting, launch, and any revisions.</div></div>
+  </div>
+</div></div>
+
+<div class="bks" id="booking"><div class="si">
+  <p class="ey rv">Free Consultation</p>
+  <h2 class="rv">Book your <em>free</em> 30-min call.</h2>
+  <p class="ss rv">Pick a time. We discuss your project and give you a free quote.</p>
+  <div class="bkl">
+    <div class="cal rv">
+      <div class="cah"><button class="can" onclick="chM(-1)">&lsaquo;</button><span class="cam" id="calLbl"></span><button class="can" onclick="chM(1)">&rsaquo;</button></div>
+      <div class="cadow"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div>
+      <div class="cagd" id="cagd"></div>
+    </div>
+    <div class="rv">
+      <div class="slt" id="slt">Select a date</div>
+      <div class="slg" id="slg"><p style="font-size:13px;color:var(--mut);grid-column:1/-1;">Pick a date from the calendar</p></div>
+      <input class="bi" id="bn" placeholder="Your name">
+      <input class="bi" id="be" type="email" placeholder="Your email">
+      <button class="bkb" id="bkb" onclick="confBook()">Confirm Free Consultation</button>
+      <div class="bok" id="bok">Booked! We will email you a confirmation shortly.</div>
+    </div>
+  </div>
+</div></div>
+
+<div class="ts rv">
+  <p class="tq">Quantum Snippet rebuilt our website in 6 days. It looks incredible, loads instantly, and we have already seen a 40% increase in enquiries. Worth every penny.</p>
+  <p class="ta"><strong>Your First Client</strong> - Small Business Owner, USA</p>
+</div>
+
+<div class="ct" id="contact"><div class="cti">
+  <div>
+    <p class="ey rv">Get a Quote</p>
+    <h2 class="rv">Lets build something <em>great.</em></h2>
+    <div class="ug rv"><span class="ugd"></span>Only 2 spots left this month</div>
+    <p class="ss rv" style="margin-bottom:0;">Fill out the form and we will get back to you within 24 hours.</p>
+    <div style="margin-top:28px;" class="rv">
+      <div class="pk">Free consultation call included</div>
+      <div class="pk">Fixed price - no hidden fees</div>
+      <div class="pk">7-day delivery guarantee</div>
+      <div class="pk">Free revisions until you love it</div>
+      <div class="pk">6 months free support after launch</div>
+    </div>
+  </div>
+  <div class="cf rv">
+    <div class="cfr"><input id="cfn" placeholder="Your name"><input id="cfe" type="email" placeholder="Your email"></div>
+    <input id="cfb2" placeholder="Business name">
+    <select id="cfs"><option value="">What do you need?</option><option>Starter Website - $299</option><option>Business Website - $499</option><option>Redesign - $199</option><option>Not sure - lets talk</option></select>
+    <textarea id="cfm" placeholder="Tell us about your business..."></textarea>
+    <button class="cfb" id="cfbtn" onclick="subForm()">Send My Free Quote Request</button>
+    <p class="cfok" id="cfok">Message sent! We will be in touch within 24 hours.</p>
+    <p class="cfer" id="cfer">Something went wrong. Please email us directly.</p>
+  </div>
+</div></div>
+
+<footer>
+  <div class="flogo">Quantum <span>Snippet</span></div>
+  <div class="fls"><a href="#services">Services</a><a href="#work">Work</a><a href="#booking">Book a Call</a><a href="#contact">Contact</a></div>
+  <div class="fc">
+    <a href="tel:4192902449">(419) 290-2449</a>
+    <a href="mailto:hello@quantumsnippet.xyz">hello@quantumsnippet.xyz</a>
+    <div class="fcp">&copy; 2025 Quantum Snippet Web Design Agency</div>
+  </div>
+</footer>
+
+<!-- Admin Modal -->
+<div id="qs-admin-modal" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);align-items:center;justify-content:center;">
+  <div style="background:var(--card);border:1px solid var(--bor2);border-radius:4px;padding:40px 44px;max-width:380px;width:90%;text-align:center;animation:qs-modal-in .25s cubic-bezier(.34,1.56,.64,1);">
+    <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:6px;">Quantum <span style="color:var(--gold);">Snippet</span></div>
+    <div style="font-size:11px;color:var(--mut);letter-spacing:.15em;text-transform:uppercase;margin-bottom:28px;">Admin Access</div>
+    <input id="qs-admin-pw" type="password" placeholder="Enter admin token"
+      style="width:100%;background:var(--bg);border:1px solid var(--bor);color:var(--txt);font-family:'Outfit',sans-serif;font-size:14px;padding:13px 15px;border-radius:2px;outline:none;margin-bottom:10px;transition:border-color .2s;"
+      onkeydown="if(event.key==='Enter')qsAdminLogin()"
+      onfocus="this.style.borderColor='var(--gold)'"
+      onblur="this.style.borderColor='var(--bor)'">
+    <div id="qs-admin-err" style="display:none;color:#e05555;font-size:12px;margin-bottom:10px;">Incorrect token.</div>
+    <button onclick="qsAdminLogin()" style="width:100%;background:var(--gold);color:#000;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;padding:14px;border:none;border-radius:2px;cursor:pointer;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;" onmouseover="this.style.background='var(--gold2)'" onmouseout="this.style.background='var(--gold)'">Enter</button>
+    <button onclick="qsCloseModal()" style="width:100%;background:transparent;color:var(--mut);font-family:'Outfit',sans-serif;font-size:12px;padding:8px;border:none;cursor:pointer;" onmouseover="this.style.color='var(--txt)'" onmouseout="this.style.color='var(--mut)'">Cancel</button>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

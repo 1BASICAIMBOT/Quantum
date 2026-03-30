@@ -145,6 +145,7 @@ h2 em{font-style:italic;font-weight:400;color:var(--gold);}
 .ta strong{color:var(--txt);}
 .ct{background:var(--bg);padding:110px 60px;border-top:1px solid var(--bor);}
 .cti{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
+.cti.single{grid-template-columns:1fr;max-width:760px;}
 .ug{display:flex;align-items:center;gap:8px;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);border-radius:2px;padding:11px 14px;font-size:13px;color:var(--gold);margin-bottom:28px;}
 .ugd{width:8px;height:8px;background:var(--gold);border-radius:50%;flex-shrink:0;animation:blink 1.2s step-end infinite;}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:.2;}}

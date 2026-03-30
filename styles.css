@@ -136,6 +136,8 @@ h2 em{font-style:italic;font-weight:400;color:var(--gold);}
 .bkb{width:100%;background:var(--gold);color:#000;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;padding:15px;border:none;border-radius:2px;cursor:pointer;letter-spacing:.1em;text-transform:uppercase;display:none;transition:background .2s;}
 .bkb:hover{background:var(--gold2);}
 .bok{display:none;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);border-radius:4px;padding:18px;text-align:center;font-size:14px;color:var(--gold);margin-top:10px;}
+.bok a{color:inherit;text-decoration:underline;}
+.bok-err{background:rgba(224,85,85,.08);border-color:rgba(224,85,85,.2);color:#e88d8d;}
 .ts{background:var(--sur);padding:110px 60px;border-top:1px solid var(--bor);text-align:center;}
 .tq{font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,30px);font-weight:400;font-style:italic;line-height:1.5;max-width:780px;margin:0 auto 28px;}
 .tq::before{content:'"';color:var(--gold);font-size:64px;line-height:0;vertical-align:-24px;margin-right:4px;}

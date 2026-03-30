@@ -180,10 +180,14 @@ function chM(d) {
 
 function confBook() {
   var n = document.getElementById('bn').value.trim(), e = document.getElementById('be').value.trim();
+  var okEl = document.getElementById('bok');
+  var errEl = document.getElementById('bokErr');
   if (!n || !e || !e.includes('@')) { alert('Please enter your name and a valid email.'); return; }
   if (!selD || !selT) { alert('Please select a date and time.'); return; }
   var btn = document.getElementById('bkb');
   btn.textContent = 'Booking…'; btn.disabled = true;
+  okEl.style.display = 'none';
+  errEl.style.display = 'none';
   fetch(API_BASE + '/api/bookings', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -192,19 +196,22 @@ function confBook() {
   .then(function(r) { return r.json().then(function(d) { return { ok: r.ok, data: d }; }); })
   .then(function(res) {
     if (res.ok) {
-      document.getElementById('bok').style.display = 'block';
-      document.getElementById('bok').innerHTML = '✓ Booked! Confirmation sent to ' + e;
+      okEl.style.display = 'block';
+      okEl.innerHTML = '✓ Booked! Confirmation sent to ' + e;
+      errEl.style.display = 'none';
       btn.style.display = 'none';
       document.getElementById('bn').style.display = 'none';
       document.getElementById('be').style.display = 'none';
     } else {
       btn.textContent = 'Confirm Free Consultation'; btn.disabled = false;
-      alert(res.data.error || 'Something went wrong. Please try again.');
+      errEl.style.display = 'block';
+      errEl.innerHTML = (res.data.error || 'Something went wrong while booking.') + ' Please message us on <a href="https://www.instagram.com/quantum_snippet/?__pwa=1" target="_blank" rel="noopener noreferrer">Instagram</a> and we will help you book your call.';
     }
   })
   .catch(function() {
     btn.textContent = 'Confirm Free Consultation'; btn.disabled = false;
-    alert('Could not connect to server. Please try again.');
+    errEl.style.display = 'block';
+    errEl.innerHTML = 'Could not connect to the booking server. Please message us on <a href="https://www.instagram.com/quantum_snippet/?__pwa=1" target="_blank" rel="noopener noreferrer">Instagram</a> or <a href="https://wa.me/2205219970?text=Hi%20Quantum%20Snippet%2C%20I%20tried%20to%20book%20a%20call%20on%20your%20website%20but%20it%20didn%27t%20work.%20Can%20you%20help%20me%20book%20it%3F" target="_blank" rel="noopener noreferrer">WhatsApp</a> and we will help you book your call.';
   });
 }
 
